@@ -2,7 +2,10 @@ package com.tamara.tokyoolympicgames
 
 
 import android.view.LayoutInflater
+import com.tamara.tokyoolympicgames.data.DataManager
 import com.tamara.tokyoolympicgames.databinding.ActivityMainBinding
+import com.tamara.tokyoolympicgames.ui.GamesAdapter
+import com.tamara.tokyoolympicgames.util.CsvParser
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -13,18 +16,21 @@ class MainActivity :BaseActivity<ActivityMainBinding>() {
 
 
 
-    private fun openFile()
+    private fun parseFile()
     {
         val inputStream=assets.open("tokyoGames.csv")// access to the file
         val buffer= BufferedReader(InputStreamReader(inputStream))
+        val parser =CsvParser()
         buffer.forEachLine {
-
-           log(it)
+        val currentgame =parser.parse(it)
+          DataManager.addOlympicGames(currentgame)
         }
     }
 
     override fun setup() {
-       openFile()
+       parseFile()
+        val adapter=GamesAdapter(DataManager.gamesList)
+        binding.recyclerGame.adapter=adapter
     }
 
     override fun addCallbacks() {

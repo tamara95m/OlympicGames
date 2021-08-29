@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
+abstract class BaseActivity<VB: ViewBinding?>: AppCompatActivity() {
     abstract val LOG_TAG: String
     abstract val bindingInflater: (LayoutInflater) -> VB
-    private var _binding: ViewBinding? = null
+    private var _binding: ViewBinding?=null
 
-    protected val binding = _binding as VB
+    protected val binding
+    get()= _binding as VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +20,8 @@ abstract class BaseActivity<VB: ViewBinding>: AppCompatActivity() {
         setContentView(requireNotNull(_binding).root)
 
 
-        setup()
-        addCallbacks()
+//        setup()
+//        addCallbacks()
     }
 
     abstract fun setup()
