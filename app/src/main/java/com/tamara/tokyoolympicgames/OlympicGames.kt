@@ -1,7 +1,7 @@
 package com.tamara.tokyoolympicgames
 
 data class OlympicGames (
-//    val rank :Int,
+    val rank :Int,
     val team :String,
      val goldMedal : Int,
      val silverMedal :Int,

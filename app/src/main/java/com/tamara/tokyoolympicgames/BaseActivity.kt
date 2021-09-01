@@ -20,7 +20,7 @@ abstract class BaseActivity<VB: ViewBinding?>: AppCompatActivity() {
         setContentView(requireNotNull(_binding).root)
 
 
-//        setup()
+       setup()
 //        addCallbacks()
     }
 

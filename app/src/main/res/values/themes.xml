@@ -13,4 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowSplashscreenContent" tools:targetApi="o">@drawable/tokyo_olympicc</item>
+        <item name="android:statusBarColor">#2A5A89</item>
+    </style>
 </resources>

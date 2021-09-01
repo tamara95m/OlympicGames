@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tamara.tokyoolympicgames.R
 import com.tamara.tokyoolympicgames.databinding.GameItemBinding
 
-class GamesAdapter (val list :MutableList<OlympicGames>) : RecyclerView.Adapter<GamesAdapter.OlympicGamesViewHolder>() {
+class GamesAdapter (val list :List<OlympicGames>) : RecyclerView.Adapter<GamesAdapter.OlympicGamesViewHolder>() {
 
 
 // class of view Holder
@@ -26,6 +26,7 @@ val binding= GameItemBinding.bind(viewItem)
     override fun onBindViewHolder(holder: OlympicGamesViewHolder, position: Int) {
         val currentGame=list[position]
        holder.binding.apply{
+           rankTextView.text=currentGame.rank.toString()
 textTeam.text=currentGame.team
            goldMedalView.text=currentGame.goldMedal.toString()
            silverMedalView.text=currentGame.silverMedal.toString()

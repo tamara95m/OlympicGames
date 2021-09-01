@@ -7,7 +7,7 @@ class CsvParser {
     {
 
         val tokens =line.split(",")
-        return OlympicGames(//rank = tokens[Constants.ColumnIndex.RANK].toInt(),
+        return OlympicGames(rank = tokens[Constants.ColumnIndex.RANK].toInt(),
             team = tokens[Constants.ColumnIndex.TEAM],
             goldMedal= tokens[Constants.ColumnIndex.GOLD_MEDAL].toInt(),
             silverMedal= tokens[Constants.ColumnIndex.SILVER_MEDAL].toInt(),

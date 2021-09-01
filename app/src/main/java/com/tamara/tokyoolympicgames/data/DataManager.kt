@@ -6,7 +6,7 @@ object DataManager {
      val gamesList= mutableListOf<OlympicGames>()
 private val gameIndex=0
     val games :List<OlympicGames>
-        get() = gamesList
+       get() = gamesList
 
     fun addOlympicGames(game:OlympicGames)
     {
